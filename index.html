@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Sri Lalita Sahasranama Koti Parayana | Jillellamudi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            800: '#58111A',
+                            900: '#3D0910',
+                            950: '#250408',
+                        },
+                        gold: {
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                            700: '#A16207',
+                        },
+                        saffron: {
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #2b1810;
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+
+        .bg-pattern {
+            background-color: #3d0910;
+            background-image: radial-gradient(#eab308 0.75px, transparent 0.75px), radial-gradient(#eab308 0.75px, #3d0910 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            background-opacity: 0.15;
+        }
+
+        .gold-border {
+            border: 2px solid #ca8a04;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FDE047 0%, #EAB308 50%, #A16207 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #FACC15 0%, #EAB308 50%, #CA8A04 100%);
+        }
+
+        .maroon-card {
+            background: linear-gradient(145deg, #58111A, #3D0910);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ca8a04;
+            border-radius: 4px;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printablePass, #printablePass * {
+                visibility: visible;
+            }
+            #printablePass {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none !important;
+                border: 2px solid #000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-maroon-950">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-saffron-600 text-white text-xs md:text-sm font-semibold text-center py-2 px-4 shadow-md flex items-center justify-center gap-2">
+        <i class="fa-solid fa-om text-gold-300"></i>
+        <span>Sri Ramanagiri Sametha Jillellamudi Amma Krupa Samethula Divine Consecration & Koti Parayana</span>
+        <i class="fa-solid fa-om text-gold-300"></i>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-maroon-900 text-white border-b-2 border-gold-600 sticky top-0 z-40 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full gold-gradient-bg flex items-center justify-center text-maroon-950 font-bold text-xl shadow-md border-2 border-gold-300">
+                    <i class="fa-solid fa-[#58111A]">𑁍</i>
+                </div>
+                <div>
+                    <h1 class="font-heading text-base md:text-xl font-bold tracking-wider text-gold-400">JILLELLAMUDI</h1>
+                    <p class="text-[10px] md:text-xs text-amber-200 tracking-widest uppercase">Koti Parayana Mahotsavam</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-gold-400 transition-colors">About Event</a>
+                <a href="#schedule" class="hover:text-gold-400 transition-colors">Schedule</a>
+                <a href="#remote-whatsapp" class="hover:text-gold-400 transition-colors">Share Counts</a>
+                <a href="#guidelines" class="hover:text-gold-400 transition-colors">Guidelines</a>
+                <a href="#my-rsvp" id="myRsvpNavBtn" onclick="checkExistingRSVP()" class="hidden text-gold-300 hover:text-white border border-gold-500/50 px-3 py-1 rounded-full text-xs flex items-center gap-1">
+                    <i class="fa-solid fa-ticket"></i> My Pass
+                </a>
+            </nav>
+
+            <a href="#rsvp-form-container" class="gold-gradient-bg text-maroon-950 font-bold text-xs md:text-sm px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-pen-nib"></i>
+                <span>RSVP Now</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-maroon-950 text-white overflow-hidden py-12 md:py-16 border-b border-gold-600/30">
+        <!-- Background Overlay / Pattern -->
+        <div class="absolute inset-0 bg-pattern opacity-30"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-saffron-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-gold-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-800/80 border border-gold-500/40 text-gold-300 text-xs md:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-location-dot text-gold-400"></i>
+                <span>Jillellamudi (AP) • Remote Group • Solo at Home</span>
+            </div>
+
+            <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-amber-50">
+                Sri Lalita Sahasranama <br/>
+                <span class="gold-gradient-text">KOTI PARAYANA</span>
+            </h1>
+
+            <p class="text-amber-200/90 text-sm md:text-lg max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                Join in divine unison to chant 10 million sacred names of Sri Lalita Maha Tripura Sundari Devi — in person at Jillellamudi, as a remote group, or solo at home.
+            </p>
+
+            <!-- Event Highlights Badge -->
+            <div class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-amber-100 font-medium mb-10">
+                <div class="bg-maroon-900/80 px-4 py-2 rounded-lg border border-gold-600/30 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-gold-400"></i>
+                    <span>December 29, 2026</span>
+                </div>
+                <div class="bg-maroon-900/80 px-4 py-2 rounded-lg border border-gold-600/30 flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-gold-400"></i>
+                    <span>05:00 AM - 06:00 PM IST</span>
+                </div>
+                <div class="bg-maroon-900/80 px-4 py-2 rounded-lg border border-gold-600/30 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                    <span>WhatsApp Count Submission</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="max-w-xl mx-auto bg-maroon-900/90 rounded-2xl p-4 md:p-6 border border-gold-500/40 shadow-2xl backdrop-blur-sm">
+                <h3 class="text-xs uppercase tracking-widest text-gold-400 mb-3 font-semibold">Countdown to Sacred Chanting</h3>
+                <div class="grid grid-cols-4 gap-2 md:gap-4 text-center" id="countdown">
+                    <div class="bg-maroon-950 p-2 md:p-4 rounded-xl border border-gold-600/20">
+                        <span class="block font-heading text-2xl md:text-4xl font-bold text-gold-300" id="cd-days">00</span>
+                        <span class="text-[10px] md:text-xs text-amber-200/70 uppercase tracking-wider">Days</span>
+                    </div>
+                    <div class="bg-maroon-950 p-2 md:p-4 rounded-xl border border-gold-600/20">
+                        <span class="block font-heading text-2xl md:text-4xl font-bold text-gold-300" id="cd-hours">00</span>
+                        <span class="text-[10px] md:text-xs text-amber-200/70 uppercase tracking-wider">Hours</span>
+                    </div>
+                    <div class="bg-maroon-950 p-2 md:p-4 rounded-xl border border-gold-600/20">
+                        <span class="block font-heading text-2xl md:text-4xl font-bold text-gold-300" id="cd-minutes">00</span>
+                        <span class="text-[10px] md:text-xs text-amber-200/70 uppercase tracking-wider">Mins</span>
+                    </div>
+                    <div class="bg-maroon-950 p-2 md:p-4 rounded-xl border border-gold-600/20">
+                        <span class="block font-heading text-2xl md:text-4xl font-bold text-gold-300" id="cd-seconds">00</span>
+                        <span class="text-[10px] md:text-xs text-amber-200/70 uppercase tracking-wider">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+
+        <!-- Saved Registration Alert Banner -->
+        <div id="savedRsvpBanner" class="hidden mb-10 bg-amber-50 border-2 border-gold-500 rounded-2xl p-4 md:p-6 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gold-500 text-maroon-950 flex items-center justify-center font-bold text-xl shrink-0">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-maroon-900 text-lg">You are already registered!</h3>
+                    <p class="text-sm text-gray-700">We found an active RSVP pass registered on this device for <span id="bannerAttendeeName" class="font-semibold text-maroon-800">Devotee</span>.</p>
+                </div>
+            </div>
+            <div class="flex gap-2 w-full sm:w-auto">
+                <button onclick="viewExistingPass()" class="w-full sm:w-auto bg-maroon-900 hover:bg-maroon-800 text-gold-300 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md">
+                    View / Download Pass
+                </button>
+            </div>
+        </div>
+
+        <!-- WhatsApp Count Sharing Callout Banner for Remote Chanters -->
+        <div id="remote-whatsapp" class="mb-10 bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-900 text-white rounded-3xl p-6 md:p-8 shadow-xl border-2 border-emerald-400/50 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-emerald-700/60 px-3 py-1 rounded-full text-emerald-200 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-brands fa-whatsapp text-emerald-300"></i> Remote & Solo Chanters
+                </div>
+                <h3 class="font-heading text-xl md:text-2xl font-bold text-emerald-100">Share Your Parayana Counts via WhatsApp!</h3>
+                <p class="text-xs md:text-sm text-emerald-200/90 max-w-2xl">
+                    Chanting from your city or home? Help us reach the 10 Million (Koti) target by submitting your group or individual chant count on event day!
+                </p>
+            </div>
+            <div class="shrink-0">
+                <button onclick="sendWhatsappCount()" class="bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-bold px-6 py-3.5 rounded-2xl shadow-lg transition-all flex items-center gap-3 text-sm md:text-base border border-emerald-300">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Share Count on WhatsApp</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+            <!-- Left Column: Dynamic RSVP Form & Pass Container (7 cols) -->
+            <div class="lg:col-span-7">
+
+                <!-- RSVP FORM CARD -->
+                <div id="rsvp-form-container" class="bg-white rounded-3xl shadow-xl border border-amber-200/80 overflow-hidden">
+                    <div class="maroon-card text-white p-6 md:p-8 border-b-2 border-gold-500">
+                        <h2 class="font-heading text-2xl md:text-3xl font-bold text-gold-400">RSVP & Registration</h2>
+                        <p class="text-amber-100/80 text-xs md:text-sm mt-1">Select your mode of participation. Open to all devotees, no login required.</p>
+                    </div>
+
+                    <form id="rsvpForm" onsubmit="handleFormSubmit(event)" class="p-6 md:p-8 space-y-6">
+
+                        <!-- Mode Selection Radio / Cards -->
+                        <div>
+                            <label class="block text-xs font-bold text-maroon-900 uppercase tracking-wider mb-3">Select Participation Mode *</label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+                                <!-- Mode 1: In Person -->
+                                <label class="mode-card cursor-pointer border-2 border-gold-500 bg-amber-50/60 p-4 rounded-2xl flex flex-col justify-between hover:border-gold-600 transition-all">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <input type="radio" name="rsvpType" value="in_person" checked onchange="handleModeChange()" class="mt-1 text-maroon-800 focus:ring-gold-500">
+                                        <i class="fa-solid fa-gopuram text-maroon-800 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-maroon-900">1) In Person</h4>
+                                        <p class="text-[11px] text-gray-600">Attend at Jillellamudi Ashram</p>
+                                    </div>
+                                </label>
+
+                                <!-- Mode 2: Remote Group -->
+                                <label class="mode-card cursor-pointer border-2 border-gray-200 p-4 rounded-2xl flex flex-col justify-between hover:border-gold-500 transition-all">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <input type="radio" name="rsvpType" value="remote_group" onchange="handleModeChange()" class="mt-1 text-maroon-800 focus:ring-gold-500">
+                                        <i class="fa-solid fa-users text-saffron-600 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-maroon-900">2) Remote Group</h4>
+                                        <p class="text-[11px] text-gray-600">Group/Mandali in your town</p>
+                                    </div>
+                                </label>
+
+                                <!-- Mode 3: Solo at Home -->
+                                <label class="mode-card cursor-pointer border-2 border-gray-200 p-4 rounded-2xl flex flex-col justify-between hover:border-gold-500 transition-all">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <input type="radio" name="rsvpType" value="solo_home" onchange="handleModeChange()" class="mt-1 text-maroon-800 focus:ring-gold-500">
+                                        <i class="fa-solid fa-house-chimney-window text-gold-600 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-maroon-900">3) Solo at Home</h4>
+                                        <p class="text-[11px] text-gray-600">Individual chanting at home</p>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- DYNAMIC FIELDS SECTION 1: IN PERSON -->
+                        <div id="sectionInPerson" class="space-y-6">
+                            <h3 class="text-xs uppercase tracking-wider font-bold text-maroon-800 border-b border-amber-200 pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-user-gear text-saffron-600"></i> In-Person Devotee Details
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="fullNameInPerson" class="block text-xs font-semibold text-gray-700 mb-1">Full Name *</label>
+                                    <input type="text" id="fullNameInPerson" placeholder="e.g. Smt. Kamala Sharma"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="gotramInPerson" class="block text-xs font-semibold text-gray-700 mb-1">Gotram *</label>
+                                    <input type="text" id="gotramInPerson" placeholder="e.g. Bharadwaja, Harithasa"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="mobileInPerson" class="block text-xs font-semibold text-gray-700 mb-1">Mobile / WhatsApp Number *</label>
+                                    <input type="tel" id="mobileInPerson" placeholder="+91 9876543210"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="cityInPerson" class="block text-xs font-semibold text-gray-700 mb-1">City / Town *</label>
+                                    <input type="text" id="cityInPerson" placeholder="e.g. Guntur, Vijayawada"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="stateInPerson" class="block text-xs font-semibold text-gray-700 mb-1">State / Country *</label>
+                                    <input type="text" id="stateInPerson" placeholder="e.g. Andhra Pradesh, Telangana"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="adultsCount" class="block text-xs font-semibold text-gray-700 mb-1">Number of Adults (12+ yrs) *</label>
+                                    <select id="adultsCount" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="1">1 Person</option>
+                                        <option value="2">2 Persons</option>
+                                        <option value="3">3 Persons</option>
+                                        <option value="4">4 Persons</option>
+                                        <option value="5+">5+ (Group / Family)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="childrenCount" class="block text-xs font-semibold text-gray-700 mb-1">Children (Under 12)</label>
+                                    <select id="childrenCount" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="0">None</option>
+                                        <option value="1">1 Child</option>
+                                        <option value="2">2 Children</option>
+                                        <option value="3+">3+ Children</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="arrivalDate" class="block text-xs font-semibold text-gray-700 mb-1">Expected Arrival Time *</label>
+                                    <select id="arrivalDate" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="28 Dec Evening">28 Dec 2026 (Evening prior)</option>
+                                        <option value="29 Dec Early Morning (4-6 AM)" selected>29 Dec 2026 (4 AM - 6 AM)</option>
+                                        <option value="29 Dec Morning (6-8 AM)">29 Dec 2026 (6 AM - 8 AM)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="transportMode" class="block text-xs font-semibold text-gray-700 mb-1">Mode of Transport *</label>
+                                    <select id="transportMode" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="Personal Vehicle / Bus">Personal Vehicle / Hired Bus</option>
+                                        <option value="Train (to Bapatla)">Train (Bapatla Railway Station)</option>
+                                        <option value="Public Bus">Public Bus (Guntur/Bapatla)</option>
+                                    </select>
+                                </div>
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="accommodation" class="block text-xs font-semibold text-gray-700 mb-1">Accommodation Required? *</label>
+                                    <select id="accommodation" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="No - Day Visit Only">No, Day Visit Only (Returning same day)</option>
+                                        <option value="Yes - Ashram Hall Dormitory">Yes, Ashram Dormitory / Common Hall Request</option>
+                                        <option value="No - Self Arranged Hotel">No, Self-arranged Hotel in Bapatla/Guntur</option>
+                                    </select>
+                                </div>
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="volunteerInterest" class="block text-xs font-semibold text-gray-700 mb-1">Seva / Volunteer Interest</label>
+                                    <select id="volunteerInterest" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="Chanting Only">Attending solely for Chanting & Worship</option>
+                                        <option value="Annadhanam Seva">Interested in Annadhanam / Food Service Volunteer</option>
+                                        <option value="Crowd & Line Management">Interested in Crowd / Line Management</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DYNAMIC FIELDS SECTION 2: REMOTE GROUP CHANTING -->
+                        <div id="sectionRemoteGroup" class="space-y-6 hidden">
+                            <h3 class="text-xs uppercase tracking-wider font-bold text-maroon-800 border-b border-amber-200 pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-users-viewfinder text-saffron-600"></i> Remote Group Chanting Registration
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="groupName" class="block text-xs font-semibold text-gray-700 mb-1">Group / Mandali / Temple Name *</label>
+                                    <input type="text" id="groupName" placeholder="e.g. Sri Lalita Satsangam, Hyderabad"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="coordName" class="block text-xs font-semibold text-gray-700 mb-1">Group Coordinator Name *</label>
+                                    <input type="text" id="coordName" placeholder="e.g. Sri N. Ramakrishna"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="coordGotram" class="block text-xs font-semibold text-gray-700 mb-1">Coordinator Gotram *</label>
+                                    <input type="text" id="coordGotram" placeholder="e.g. Kashyapa"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="coordMobile" class="block text-xs font-semibold text-gray-700 mb-1">Coordinator Mobile / WhatsApp *</label>
+                                    <input type="tel" id="coordMobile" placeholder="+91 9876543210"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="estimatedParticipants" class="block text-xs font-semibold text-gray-700 mb-1">Estimated Group Members *</label>
+                                    <input type="number" id="estimatedParticipants" min="2" placeholder="e.g. 25"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="chantingLocation" class="block text-xs font-semibold text-gray-700 mb-1">Chanting Location (Venue Address & City) *</label>
+                                    <input type="text" id="chantingLocation" placeholder="e.g. Sai Baba Temple Hall, Kukatpally, Hyderabad"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DYNAMIC FIELDS SECTION 3: SOLO AT HOME -->
+                        <div id="sectionSoloHome" class="space-y-6 hidden">
+                            <h3 class="text-xs uppercase tracking-wider font-bold text-maroon-800 border-b border-amber-200 pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-house-user text-saffron-600"></i> Solo Chanting at Home Details
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="col-span-1 md:col-span-2">
+                                    <label for="soloName" class="block text-xs font-semibold text-gray-700 mb-1">Devotee Full Name *</label>
+                                    <input type="text" id="soloName" placeholder="e.g. Sri V. Sundaram"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="soloGotram" class="block text-xs font-semibold text-gray-700 mb-1">Gotram *</label>
+                                    <input type="text" id="soloGotram" placeholder="e.g. Kaundinya"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="soloMobile" class="block text-xs font-semibold text-gray-700 mb-1">Mobile / WhatsApp Number *</label>
+                                    <input type="tel" id="soloMobile" placeholder="+91 9876543210"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="soloCity" class="block text-xs font-semibold text-gray-700 mb-1">City / Town *</label>
+                                    <input type="text" id="soloCity" placeholder="e.g. Bengaluru, Karnataka"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="targetParayanas" class="block text-xs font-semibold text-gray-700 mb-1">Target Parayana Recitations on Dec 29 *</label>
+                                    <select id="targetParayanas" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 outline-none text-sm">
+                                        <option value="1 Time (1,000 Names)">1 Full Recitation (1,000 Names)</option>
+                                        <option value="2 Times (2,000 Names)">2 Recitations (2,000 Names)</option>
+                                        <option value="3 Times (3,000 Names)">3 Recitations (3,000 Names)</option>
+                                        <option value="5+ Times">5+ Recitations</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start gap-3 pt-2">
+                            <input type="checkbox" id="termsConsent" required class="mt-1 h-4 w-4 rounded text-maroon-800 focus:ring-gold-500 border-gray-300">
+                            <label for="termsConsent" class="text-xs text-gray-600 leading-relaxed">
+                                I confirm our participation in the Sri Lalita Sahasranama Koti Parayana on 29th Dec 2026 with utmost devotion and agree to submit our chanting counts to the organizers.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" class="w-full gold-gradient-bg hover:brightness-105 text-maroon-950 font-bold py-4 rounded-xl shadow-lg transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 text-base md:text-lg">
+                                <i class="fa-solid fa-file-circle-check text-xl"></i>
+                                <span>Confirm RSVP & Generate Pass</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- CONFIRMATION / DIGITAL PASS CARD -->
+                <div id="pass-container" class="hidden bg-white rounded-3xl shadow-2xl border-2 border-gold-500 overflow-hidden">
+                    <div class="bg-maroon-900 text-white p-6 border-b border-gold-500 flex justify-between items-center no-print">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Registration Confirmed</span>
+                            <h2 class="font-heading text-xl font-bold">Parayana Participation Pass</h2>
+                        </div>
+                        <button onclick="resetRsvpForm()" class="text-xs bg-maroon-800 hover:bg-maroon-700 text-amber-200 border border-gold-500/30 px-3 py-1.5 rounded-lg transition-all">
+                            <i class="fa-solid fa-plus-circle"></i> New RSVP
+                        </button>
+                    </div>
+
+                    <!-- Printable Pass Container -->
+                    <div id="printablePass" class="p-6 md:p-8 bg-gradient-to-b from-amber-50/60 to-white relative">
+
+                        <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                            <i class="fa-solid fa-[#58111A] text-[200px]">𑁍</i>
+                        </div>
+
+                        <!-- Pass Header -->
+                        <div class="border-b-2 border-dashed border-gold-600/40 pb-6 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <span id="passTypeBadge" class="text-[10px] font-bold tracking-widest uppercase bg-maroon-900 text-gold-300 px-3 py-1 rounded-full">In-Person Devotee Pass</span>
+                                <h3 class="font-heading text-xl md:text-2xl font-bold text-maroon-900 mt-2">Lalita Sahasranama Koti Parayana</h3>
+                                <p class="text-xs text-amber-800 font-medium">Jillellamudi Samsthanam • 29 Dec 2026</p>
+                            </div>
+                            <div class="text-left sm:text-right bg-maroon-50 p-3 rounded-2xl border border-gold-400/40">
+                                <span class="text-[10px] text-gray-500 uppercase font-semibold block">Reg Pass ID</span>
+                                <span id="passRegId" class="font-mono font-bold text-lg text-maroon-900 tracking-wider">LSP-2026-XXXX</span>
+                            </div>
+                        </div>
+
+                        <!-- Pass Details Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="md:col-span-2 space-y-4">
+                                <div>
+                                    <span class="text-xs text-gray-500 font-semibold block">Devotee / Group Name</span>
+                                    <span id="passName" class="text-lg font-bold text-maroon-950">Smt. Kamala Sharma</span>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <span class="text-xs text-gray-500 font-semibold block">Gotram</span>
+                                        <span id="passGotram" class="text-sm font-semibold text-gray-800">Bharadwaja</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500 font-semibold block">Contact Number</span>
+                                        <span id="passMobile" class="text-sm font-semibold text-gray-800">+91 9876543210</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500 font-semibold block">Location / City</span>
+                                        <span id="passLocation" class="text-sm font-semibold text-gray-800">Vijayawada, AP</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500 font-semibold block">Participation Details</span>
+                                        <span id="passMeta" class="text-sm font-semibold text-maroon-900 bg-amber-100 px-2 py-0.5 rounded inline-block">2 Adults</span>
+                                    </div>
+                                </div>
+
+                                <div id="passExtraNoteBox" class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-gray-700">
+                                    <span class="font-bold text-maroon-900">Logistics Info:</span> <span id="passExtraNote">Day Visit</span>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Visual QR / Badge Box -->
+                            <div class="flex flex-col items-center justify-center bg-maroon-950 text-white p-4 rounded-2xl border-2 border-gold-500 text-center relative overflow-hidden">
+                                <div class="w-32 h-32 bg-white p-2 rounded-xl shadow-inner mb-3 flex items-center justify-center">
+                                    <svg class="w-full h-full text-maroon-950" viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z M40,0 h20 v10 h-20 z M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z M0,40 h10 v20 h-10 z M20,40 h20 v10 h-20 z M50,40 h10 v30 h-10 z M70,40 h20 v10 h-20 z M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z M40,80 h30 v20 h-30 z M80,70 h20 v30 h-20 z M90,80 h10 v10 h-10 z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] text-gold-300 font-semibold uppercase">Official Registration Pass</span>
+                                <span class="text-[9px] text-amber-200/70 mt-1">Dec 29, 2026 • Jillellamudi</span>
+                            </div>
+                        </div>
+
+                        <!-- Pass Footer Rules -->
+                        <div class="border-t border-gray-200 pt-4 text-[11px] text-gray-600 flex flex-col md:flex-row justify-between items-center gap-2">
+                            <p><i class="fa-solid fa-circle-info text-saffron-600 mr-1"></i> Please keep this pass saved or printed for your reference.</p>
+                            <span class="font-bold text-maroon-900">Jillellamudi Amma Sannidhi</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions Bar -->
+                    <div class="bg-amber-50 p-6 border-t border-amber-200 flex flex-wrap gap-4 justify-between items-center no-print">
+                        <button onclick="window.print()" class="bg-maroon-900 hover:bg-maroon-800 text-gold-300 font-bold px-6 py-3 rounded-xl transition-all shadow-md flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-print"></i>
+                            <span>Print or Save PDF Pass</span>
+                        </button>
+
+                        <button onclick="sendWhatsappCount()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3 rounded-xl transition-all text-sm flex items-center gap-2 shadow">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Send Count via WhatsApp</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Column: Schedule & Info (5 cols) -->
+            <div class="lg:col-span-5 space-y-8">
+
+                <!-- Updated Program Schedule Section -->
+                <div id="schedule" class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-amber-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-saffron-500 text-white flex items-center justify-center font-bold shadow">
+                            <i class="fa-regular fa-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-maroon-900">Program Schedule</h3>
+                            <p class="text-xs text-gray-500">Dec 29, 2026 • Jillellamudi</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- 5:00 AM -->
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-amber-50/50 border border-amber-200/60">
+                            <span class="bg-maroon-900 text-gold-300 text-xs font-bold px-3 py-1.5 rounded-xl shrink-0">05:00 AM</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-maroon-950">Suprabhatam</h4>
+                                <p class="text-xs text-gray-600">Morning divine invocation & awakening prayers.</p>
+                            </div>
+                        </div>
+                        <!-- 7:00 AM -->
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-amber-50/50 border border-amber-200/60">
+                            <span class="bg-maroon-900 text-gold-300 text-xs font-bold px-3 py-1.5 rounded-xl shrink-0">07:00 AM</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-maroon-950">Mahanyasapurvaka Rudrabhishekam</h4>
+                                <p class="text-xs text-gray-600">Sacred Vedic Abhishekam ritual.</p>
+                            </div>
+                        </div>
+                        <!-- 8:00 AM - 6:00 PM -->
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-gradient-to-r from-amber-100 to-amber-50 border-2 border-gold-500 shadow-sm">
+                            <span class="gold-gradient-bg text-maroon-950 text-xs font-extrabold px-3 py-1.5 rounded-xl shrink-0 shadow">08:00 AM - 06:00 PM</span>
+                            <div>
+                                <h4 class="text-sm font-extrabold text-maroon-900">Lalita Koti Nama Parayana</h4>
+                                <p class="text-xs text-maroon-800 font-medium">10 Million Cumulative Recitations across all venues worldwide.</p>
+                            </div>
+                        </div>
+                        <!-- 12:30 PM -->
+                        <div class="flex items-start gap-4 p-3 rounded-2xl bg-amber-50/50 border border-amber-200/60">
+                            <span class="bg-maroon-900 text-gold-300 text-xs font-bold px-3 py-1.5 rounded-xl shrink-0">12:30 PM</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-maroon-950">Amma Maha Prasadam</h4>
+                                <p class="text-xs text-gray-600">Community sacred Annadhanam served to all devotees.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Koti Parayana Card -->
+                <div id="about" class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-amber-200/80">
+                    <h3 class="font-heading text-xl font-bold text-maroon-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-om text-saffron-600"></i> About the Divine Event
+                    </h3>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                        Participating in <strong>Sri Lalita Sahasranama Koti Parayana</strong> brings immense spiritual merit, harmony, and peace. Whether you join us physically at Jillellamudi, host a remote group in your city temple/mandali, or chant solo from your home, your recitations contribute to the sacred 10 Million goal!
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-gold-500 p-4 rounded-r-xl">
+                        <p class="text-xs text-maroon-900 italic font-medium">
+                            "Where Lalita Sahasranama is chanted collectively with devotion, Divine Mother Mother's presence bestows health, prosperity, and peace."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Guidelines & Dress Code -->
+                <div id="guidelines" class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-amber-200/80">
+                    <h3 class="font-heading text-xl font-bold text-maroon-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-shirt text-saffron-600"></i> Guidelines for Chanters
+                    </h3>
+                    <ul class="space-y-3 text-xs text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-gold-600 mt-0.5"></i>
+                            <span><strong>In-Person Dress Code:</strong> Traditional attire (Dhoti/Kurta for Men; Saree/Chudidhar for Women).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-gold-600 mt-0.5"></i>
+                            <span><strong>Count Reporting:</strong> All remote group coordinators and solo chanters are requested to send final count totals via WhatsApp by 06:30 PM on Dec 29.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Venue & Helpline -->
+                <div id="venue" class="bg-maroon-900 text-white rounded-3xl p-6 md:p-8 shadow-lg border border-gold-500/40 space-y-4">
+                    <h3 class="font-heading text-xl font-bold text-gold-400 flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot"></i> Venue & Helpline
+                    </h3>
+                    <p class="text-xs text-amber-100/90 leading-relaxed">
+                        <strong>Sri Jillellamudi Amma Temple Premises</strong><br/>
+                        Jillellamudi Village, Bapatla Mandal & District,<br/>
+                        Andhra Pradesh - 522113, India.
+                    </p>
+                    <div class="border-t border-gold-500/30 pt-4 text-xs space-y-2 text-amber-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-gold-400"></i>
+                            <span>Helpline: +91 98480 12345 / +91 8643 224000</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                            <span>WhatsApp Updates: +91 98480 12345</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-maroon-950 text-amber-200/70 border-t border-gold-600/30 py-8 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p class="font-heading text-sm text-gold-400 font-bold tracking-wider">SRI LALITA SAHASRANAMA KOTI PARAYANA SAMITHI</p>
+            <p>Jillellamudi Amma Sannidhi, Andhra Pradesh • Dec 29th, 2026</p>
+            <p class="text-[10px] text-gray-500">Open Devotional Portal • Free Registration for All Devotees</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Box -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 bg-maroon-900 text-gold-300 border-2 border-gold-500 px-5 py-3 rounded-2xl shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-xl"></i>
+        <span id="toastMessage" class="text-sm font-medium">Notification message</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Target Event Date: Dec 29, 2026 05:00:00 AM IST
+        const eventDate = new Date("December 29, 2026 05:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById("cd-days").innerText = "00";
+                document.getElementById("cd-hours").innerText = "00";
+                document.getElementById("cd-minutes").innerText = "00";
+                document.getElementById("cd-seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("cd-days").innerText = String(days).padStart(2, '0');
+            document.getElementById("cd-hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("cd-minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("cd-seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Local Storage Key
+        const STORAGE_KEY = "jillellamudi_koti_parayana_rsvp_v2";
+
+        // Handle Dynamic Mode Change in RSVP Form
+        function handleModeChange() {
+            const selectedMode = document.querySelector('input[name="rsvpType"]:checked').value;
+            const secInPerson = document.getElementById("sectionInPerson");
+            const secRemoteGroup = document.getElementById("sectionRemoteGroup");
+            const secSoloHome = document.getElementById("sectionSoloHome");
+
+            // Update card highlight styling
+            document.querySelectorAll(".mode-card").forEach(card => {
+                card.classList.remove("border-gold-500", "bg-amber-50/60");
+                card.classList.add("border-gray-200");
+            });
+
+            const activeCard = document.querySelector(`input[name="rsvpType"][value="${selectedMode}"]`).closest(".mode-card");
+            activeCard.classList.remove("border-gray-200");
+            activeCard.classList.add("border-gold-500", "bg-amber-50/60");
+
+            // Toggle input sections
+            secInPerson.classList.add("hidden");
+            secRemoteGroup.classList.add("hidden");
+            secSoloHome.classList.add("hidden");
+
+            if (selectedMode === "in_person") {
+                secInPerson.classList.remove("hidden");
+            } else if (selectedMode === "remote_group") {
+                secRemoteGroup.classList.remove("hidden");
+            } else if (selectedMode === "solo_home") {
+                secSoloHome.classList.remove("hidden");
+            }
+        }
+
+        // Handle Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const selectedMode = document.querySelector('input[name="rsvpType"]:checked').value;
+
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const regId = `LSP-2026-${randomNum}`;
+            let rsvpData = { regId, mode: selectedMode, submittedAt: new Date().toISOString() };
+
+            if (selectedMode === "in_person") {
+                const name = document.getElementById("fullNameInPerson").value.trim();
+                const gotram = document.getElementById("gotramInPerson").value.trim();
+                const mobile = document.getElementById("mobileInPerson").value.trim();
+                const city = document.getElementById("cityInPerson").value.trim();
+                const state = document.getElementById("stateInPerson").value.trim();
+
+                if (!name || !gotram || !mobile || !city || !state) {
+                    showToast("Please fill all required in-person fields (*)");
+                    return;
+                }
+
+                rsvpData = {
+                    ...rsvpData,
+                    name,
+                    gotram,
+                    mobile,
+                    location: `${city}, ${state}`,
+                    adults: document.getElementById("adultsCount").value,
+                    children: document.getElementById("childrenCount").value,
+                    arrival: document.getElementById("arrivalDate").value,
+                    transport: document.getElementById("transportMode").value,
+                    accommodation: document.getElementById("accommodation").value,
+                    volunteer: document.getElementById("volunteerInterest").value
+                };
+            } else if (selectedMode === "remote_group") {
+                const groupName = document.getElementById("groupName").value.trim();
+                const coordName = document.getElementById("coordName").value.trim();
+                const gotram = document.getElementById("coordGotram").value.trim();
+                const mobile = document.getElementById("coordMobile").value.trim();
+                const members = document.getElementById("estimatedParticipants").value;
+                const location = document.getElementById("chantingLocation").value.trim();
+
+                if (!groupName || !coordName || !gotram || !mobile || !members || !location) {
+                    showToast("Please fill all required group fields (*)");
+                    return;
+                }
+
+                rsvpData = {
+                    ...rsvpData,
+                    name: `${groupName} (Coord: ${coordName})`,
+                    gotram,
+                    mobile,
+                    location,
+                    membersCount: members
+                };
+            } else if (selectedMode === "solo_home") {
+                const name = document.getElementById("soloName").value.trim();
+                const gotram = document.getElementById("soloGotram").value.trim();
+                const mobile = document.getElementById("soloMobile").value.trim();
+                const city = document.getElementById("soloCity").value.trim();
+                const target = document.getElementById("targetParayanas").value;
+
+                if (!name || !gotram || !mobile || !city) {
+                    showToast("Please fill all required solo devotee fields (*)");
+                    return;
+                }
+
+                rsvpData = {
+                    ...rsvpData,
+                    name,
+                    gotram,
+                    mobile,
+                    location: city,
+                    targetChants: target
+                };
+            }
+
+            // Save to LocalStorage
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(rsvpData));
+            } catch(e) {
+                console.error("Local storage error", e);
+            }
+
+            renderPass(rsvpData);
+            showToast("RSVP Confirmed Successfully!");
+        }
+
+        // Render Digital Pass dynamically based on mode
+        function renderPass(data) {
+            document.getElementById("passRegId").innerText = data.regId;
+            document.getElementById("passName").innerText = data.name;
+            document.getElementById("passGotram").innerText = data.gotram;
+            document.getElementById("passMobile").innerText = data.mobile;
+            document.getElementById("passLocation").innerText = data.location;
+
+            const badge = document.getElementById("passTypeBadge");
+            const meta = document.getElementById("passMeta");
+            const noteBox = document.getElementById("passExtraNoteBox");
+            const note = document.getElementById("passExtraNote");
+
+            if (data.mode === "in_person") {
+                badge.innerText = "In-Person Devotee Pass";
+                badge.className = "text-[10px] font-bold tracking-widest uppercase bg-maroon-900 text-gold-300 px-3 py-1 rounded-full";
+                meta.innerText = `${data.adults} Adult(s) ${data.children > 0 ? `, ${data.children} Child` : ''}`;
+                noteBox.classList.remove("hidden");
+                note.innerText = `${data.accommodation} | Arrival: ${data.arrival}`;
+            } else if (data.mode === "remote_group") {
+                badge.innerText = "Remote Group Chanting Pass";
+                badge.className = "text-[10px] font-bold tracking-widest uppercase bg-saffron-600 text-white px-3 py-1 rounded-full";
+                meta.innerText = `${data.membersCount} Member Chanting Group`;
+                noteBox.classList.remove("hidden");
+                note.innerText = `Chanting Venue: ${data.location}`;
+            } else if (data.mode === "solo_home") {
+                badge.innerText = "Solo at Home Chanter Pass";
+                badge.className = "text-[10px] font-bold tracking-widest uppercase bg-amber-600 text-white px-3 py-1 rounded-full";
+                meta.innerText = `Target: ${data.targetChants}`;
+                noteBox.classList.remove("hidden");
+                note.innerText = `Chanting at Home on Dec 29, 2026`;
+            }
+
+            document.getElementById("rsvp-form-container").classList.add("hidden");
+            document.getElementById("pass-container").classList.remove("hidden");
+            document.getElementById("savedRsvpBanner").classList.add("hidden");
+
+            document.getElementById("pass-container").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // WhatsApp direct sharing trigger
+        function sendWhatsappCount() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            let text = "Jai Amma! I would like to share our Lalita Sahasranama Parayana details for Dec 29, 2026.\n";
+
+            if (stored) {
+                const data = JSON.parse(stored);
+                text += `Name: ${data.name}\nGotram: ${data.gotram}\nLocation: ${data.location}\nReg ID: ${data.regId}\n`;
+                if (data.membersCount) text += `Group Strength: ${data.membersCount} members\n`;
+                if (data.targetChants) text += `Target Chants: ${data.targetChants}\n`;
+            } else {
+                text += "Devotee Name: \nGotram: \nLocation: \nCompleted Parayana Count: ";
+            }
+
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/919848012345?text=${encodedText}`, '_blank');
+        }
+
+        // Check if registration already exists in browser localstorage
+        function checkExistingRSVP() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    document.getElementById("savedRsvpBanner").classList.remove("hidden");
+                    document.getElementById("bannerAttendeeName").innerText = data.name;
+                    document.getElementById("myRsvpNavBtn").classList.remove("hidden");
+                    return data;
+                }
+            } catch(e) {
+                console.error("Error reading stored RSVP", e);
+            }
+            return null;
+        }
+
+        function viewExistingPass() {
+            const data = checkExistingRSVP();
+            if (data) {
+                renderPass(data);
+            }
+        }
+
+        function resetRsvpForm() {
+            document.getElementById("rsvpForm").reset();
+            document.getElementById("rsvp-form-container").classList.remove("hidden");
+            document.getElementById("pass-container").classList.add("hidden");
+            handleModeChange();
+            document.getElementById("rsvp-form-container").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toast utility
+        function showToast(msg) {
+            const toast = document.getElementById("toastNotification");
+            const toastMsg = document.getElementById("toastMessage");
+            toastMsg.innerText = msg;
+            toast.classList.remove("translate-y-20", "opacity-0");
+            setTimeout(() => {
+                toast.classList.add("translate-y-20", "opacity-0");
+            }, 3500);
+        }
+
+        // Initialize check on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            checkExistingRSVP();
+            handleModeChange();
+        });
+    </script>
+</body>
+</html>
